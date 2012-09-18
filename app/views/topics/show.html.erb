@@ -1,13 +1,11 @@
-<div class="container natural-margin" >
-  <div class="span12" style="position: fixed; background: #D27F0A; margin-left: 0px!important;margin-top: -10px; border-bottom: solid 1px #D26800;">
-      <div class="span2">
-
+<div class="container content natural-margin" >
+  <div class="span10" style="position: fixed; background: #eff4f8; margin-left: 0px!important;margin-top: -10px; border-bottom: solid 1px #b6ced7;">
+      <div class="span2" style="width: 250px; height: 90px;">
         <p id="notice"><%= notice %></p>
         <p>
           <b>Title:</b>
           <%= @topic.title %>
         </p>
-
         <p>
           <b>Descritption:</b>
           <%= @topic.descritption %>
@@ -19,20 +17,19 @@
         <%= link_to 'Edit', edit_topic_path(@topic) %> |
         <%= link_to 'Back', topics_path %>
       </div>
-
-      <div style="float: right;">
-          <div id="result_msg"></div>
+        <div id="result_msg" style="float: right;"></div>
+      <div style="float: left;">
           <%= render :partial =>  "examination/form_quest"%>
       </div>
+  </div>
 
-    </div>
-
-
-
-  <div id="quest_elements" class="span12" style="margin: 150px 0px 50px 0px">
+  <div id="quest_elements" class="span10" style="margin: 150px 0px 50px 0px">
     <% @quest.each do |quest| %>
-        <div class="green">
-            <b><%=  quest.description%></b></br>
+        <div class="quest_element">
+            <b><%=  quest.description%></b>
+            <a href="#" onclick="return false" class="btn">Responder</a>
+            </br>
+
         </div>
     <% end %>
 </div>

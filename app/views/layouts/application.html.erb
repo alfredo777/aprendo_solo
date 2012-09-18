@@ -50,6 +50,11 @@ function MostrarOcultar(capa,enlace)
 
 </head>
 <% if notice%>
+    <script>
+        setTimeout(function() {
+            $(".close").click();
+        }, 2500);
+    </script>
 <div class="alert alert-info" style="margin-top:50px;">
 	<button type="button" class="close" data-dismiss="alert">×</button>
   <%= notice %>

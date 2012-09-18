@@ -1,0 +1,79 @@
+<head>
+<script type="text/javascript" charset="utf-8">
+   jQuery(function($){
+     fv = $("#video").flareVideo();
+     fv.load([
+       {
+         src:  '<%= @video_loader.video_load %>',
+         type: 'video/mp4'
+       }
+     ]);
+   })
+ </script> 
+</head>
+
+<div class="row" style="margin-top:70px;">
+
+	<div class="span16" style="padding-left:130px; paddign-top:70px;">
+<div class=" span10 whitetext "><h1><%= @video_loader.title %><%= @video_loader.course_id %></div> </h1> 
+<div class="span2">	
+ 	<div class="btn-group">
+		  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+		    Opcciones
+		    <span class="caret"></span>
+		  </a>
+		  <ul class="dropdown-menu">
+			<a href="#myModal" class="btn" data-toggle="modal">Editar Video</a> 
+			<a><%= link_to 'Mis Videos', video_path(@video_loader.course_id), :class=>"btn" %></a>
+			<a><%= link_to 'Eliminar Video', @video_loader, confirm: '¿Estas seguro que querer eliminar este video?', method: :delete, :class=>"btn" %></a>
+		  </ul>
+		</div>
+</div>
+	
+<div id='video'></div>
+<p id="notice"><%= notice %></p>
+
+
+<div class="grey-black">	
+  <b>Descripsión:</b>
+<p>
+  <%= @video_loader.description %>
+</p>
+</div>
+<div class="span3 grey-black">
+<p>
+  <b>Tipo:</b>
+  <%= @video_loader.typeo %>
+</p>
+
+<p>
+  <b>Nivel:</b>
+  <%= @video_loader.level %>
+</p>
+ </div>
+<div class="span7 green">
+	
+<div class="span5 btn-group", style="padding-left:20px; padding-top:4px;">	
+ <div class="span1">
+  <%= form_for @video_loader do |loadtrue| %>
+  <%= loadtrue.hidden_field :publicado, :value => "Publicado" %>
+  <h3> <%= loadtrue.submit "Publicar", :class => "btn btn-large btn-succes"%> </h3>
+  <%end%>
+ </div>
+ <div class="span1">
+  <%= form_for @video_loader do |loadfalse| %>
+  <%= loadfalse.hidden_field :publicado, :value => "No publicado" %>
+  <h3> <%= loadfalse.submit "No publicar", :class => "btn btn-large btn-danger"%> </h3>
+  <%end%>
+</div>
+</div>
+<div class="span2", style="margin-left:-30px;">	
+	<h3><%= @video_loader.publicado %></h3>
+</div>
+</div>
+ </div>
+</div>
+
+<%= render :partial => "video_loaders/form_edit"%>
+ 
+ 

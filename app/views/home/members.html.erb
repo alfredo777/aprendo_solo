@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="span11">
+	<div class="grey natural-margin" style="height:800px; margin-bottom:50px;">
+	  <h2>Red de usuarios:</h2></br>
+	    <% @users.each do |user|%>
+	     <div style="width:60px; height:60px; float:left;">
+	        <a rel="tooltip" data-placement="top" title="<%= user.about_me %>">
+	          <% if user.avatar? %>	
+	           <div class="circle" id="<%= user.id %>" style="background-image:url(<%=user.avatar%>)" onClick="goToProfile('<%= user_path(user.id)%>')"></div>
+	
+	          <%else%>
+	           <div class="circle" id="<%= user.id %>" style="background-image:url(<%=user.image%>)" onClick="goToProfile('<%= user_path(user.id)%>')"></div>
+	          <%end%>
+	        </a>
+	     </div>
+	   <%end%>
+	 </div>
+	</div>
+</div>
+<script type="text/javascript">
+
+	function goToProfile(url){
+		console.log('hola');
+		window.location = url;
+		
+	}
+
+</script>

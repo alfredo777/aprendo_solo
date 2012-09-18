@@ -1,0 +1,23 @@
+<div class="span11" style="margin-top:50px; margin-left:15%;  margin-right:15%; margin-bottom:70px;">
+	<%= link_to 'Edit', edit_course_path(@course) %> |
+	<%= link_to 'Back', courses_path %>
+<p id="notice"><%= notice %></p>
+<h1>
+  <%= @course.title %>
+</h1>
+<!-- redirecciona de cursos los videos -->
+<%= render "videos"%>
+<div class="span9 black", style="margin-left:5%;">
+	<p>
+	<div class="descript-up">
+	  <b>Descripcción:</b>
+	  <%= @course.description %></br>
+	</p>
+	</div>
+	<div>
+	  <%= render :partial => "facebooklike"%>
+	</div>
+<!-- redirecciona de cursos los el facebook wall -->
+	<%= render "facebookwall"%>
+</div> 
+</div>

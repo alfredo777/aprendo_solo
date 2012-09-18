@@ -1,0 +1,28 @@
+<div class="modal hide" id="myModal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="false">×</button>
+    <h3 style="color:#000;">Editar Video</h3>
+  </div>
+	<div class="modal-body" style="color:#000;">
+<%= form_for @video_loader do |f| %>
+ 
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :rows => 5  %>
+  
+    <%= f.label :typeo %><br />
+    <%= f.select :typeo, options_for_select([['Matemáticas', 'mathematics'],['Bilogía', 'Bilology'],['Física','Physical'], ['Química','Quimic'],['Lenguajes','Languajes'], ['Informática','Informatic'],['Manualidades','crafts'], ['Arte','art'],['Hogar','home'], ['Cocina','kitchen'],['Relacionado con animales','animals'], ['Agricultura','agriculture'], ['Tema de interés social','social']])  %>
+
+    <%= f.label :level %><br />
+    <%= f.select :level, options_for_select([['Principiante', 'one'],['Intermedio', 'two'],['Avanzado','tree']]) %>
+    </br>
+   <%= f.file_field :video_load %>
+   </div>
+  <div class="modal-footer">
+    <%= f.submit "Subir Video", :class=>"btn pull-right" %>
+  </div>
+<% end %>
+ </div>
+</div>

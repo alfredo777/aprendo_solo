@@ -1,0 +1,42 @@
+<div class="span10">
+<div class="carousel slide" id="carrouselle">
+ <div id="video-course" class="carousel-inner">
+<% @video_loaders.each do |video_loader| %>
+
+  <%@id = video_loader.id%>
+  <%@title = video_loader.title %>
+  <%@description = video_loader.description %>
+  <%@video = video_loader.video_load %>
+  <% if @id == @video_loaders.first.id %>
+       <div class="active item">
+	     <center>
+	      <h3> <%= @title%> </h3>
+	     </center>
+	   
+  <%else%>
+       <div class="item">
+	    <center>
+	     <h3> <%= @title%> </h3>
+	    </center>
+  <%end%>
+         <div id='<%=@id%>' class="video-course-dimensions">    
+	      	<script type="text/javascript" charset="utf-8">
+			   jQuery(function($){
+			     fv = $("#<%=@id%>").flareVideo();
+			     fv.load([
+			       {
+			         src:  '<%= @video  %>',
+			       }
+			     ]);
+			   })
+			 </script>	     
+	     </div>
+	      <div class="description"><h3>Descripcción:</h3><p> <%=@description%></p> </div>
+	      
+       </div> 
+<%end%>
+ 
+</div>
+  <a class="carousel-control left" href="#carrouselle" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#carrouselle" data-slide="next">&rsaquo;</a>
+</div>

@@ -1,0 +1,46 @@
+<div class="container">
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <ul class="nav pull-left" ><%= link_to "Aprendo Solo", root_path, :class => "brand"%></ul>
+      <ul class="nav pull-right">
+	    <% if current_user %>
+		    <li class="divider-vertical"></li>
+		   <li><%= link_to "Finaliza la sesión ", signout_path %></li>
+		   <li class="divider-vertical"></li>
+		   <li><div id="friends">
+	     <li><%= link_to "Invitar Amigos", "#", :id => "invite_fb_friends"  %></li>
+
+	     <script src="http://connect.facebook.net/en_US/all.js"></script>
+
+	     <script>
+	       $(function(){
+
+	         $("a#invite_fb_friends").click(function() {
+	           FB.init({ 
+	              appId:'336243296469875', 
+	              cookie:false, 
+	              status:true
+	           });
+
+	           FB.ui({ method: 'apprequests', message: ' <%= current_user.name %> Unete la increíble realidad de aprendo solo'});
+	         });
+	       });
+	     </script>
+		  </div>
+
+		    
+		  <% else %>
+		    <li> <%= link_to "Ingresa", "/auth/facebook" %> </li>
+		    <li class="divider-vertical"></li>
+		  <% end %>
+	       
+	     
+	   
+	  </ul>	 
+	  
+	</div>    
+  </div>
+</div>
+</div>
+<div id="fb-root"></div>

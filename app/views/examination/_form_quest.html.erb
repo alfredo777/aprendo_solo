@@ -1,0 +1,24 @@
+<div class="container">
+<%= form_for @quest, remote: true do |quest|%>
+
+
+<a href="#" id="add_quest_btn"> Agregar pregunta</a>
+	<div id="clone_box"></div>
+	<div id="clone_elements" style="display:block">
+	 <%= quest.text_area :description,:rows => 5, :class => "span4" %></br>
+	 <%=  quest.select :value, (5...100) %>
+	 <%= quest.hidden_field :topic_id, :value => @topic.id %>
+	</div>
+ <%= quest.submit " quest ", :class => "btn"%>
+<%end%>
+
+<script type="text/javascript">
+	$('#add_quest_btn').click(function (){
+		
+		$('#clone_elements').clone().appendTo('#clone_box').css('display','block');
+		
+		
+	});
+
+</script>
+</div>

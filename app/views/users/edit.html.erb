@@ -1,0 +1,18 @@
+<h1>Editar Usuario</h1>
+<div class="span10" style="margin-top:70px;margin-bottom:70px;">
+<div class="span3">
+<%= form_for(@user) do |f| %>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+  <%= f.label :Nombre_de_usuario%>
+  <%= f.text_field :name%>
+  <%= f.label :Acerca_de_mi%>
+  <%= f.text_area :about_me, :rows => 7%></br>
+  <%= f.label :Imagen_de_usuario%>
+  <%= f.file_field :avatar %>
+  <div><%= f.submit "Guardar", :class => "btn pull-right"%>  </div>
+<% end %>
+
+</div>
+</div>

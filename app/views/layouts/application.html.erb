@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <title>AprendoSolo</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= render :partial => "shared/topbar"%>
+  
+<!--este script permite activar el tooltip de bootstrap-->
+<script languaje="Javascript">
+<!--
+document.write('<style type="text/css">div.ocultable{display: none;}</style>');
+function MostrarOcultar(capa,enlace)
+{
+    if (document.getElementById)
+    {
+        var aux = document.getElementById(capa).style;
+        aux.display = aux.display? "":"block";
+    }
+}
+
+//-->
+</script>
+  <script type='text/javascript'>
+
+     $(document).ready(function () {
+     if ($("[rel=tooltip]").length) {
+     $("[rel=tooltip]").tooltip();
+     }
+   });
+  </script>
+<div id="fb-root"></div>
+<!--compartir contenido-->
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_ES/all.js#xfbml=1&appId=336243296469875";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!--like-->
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_ES/all.js#xfbml=1&appId=336243296469875";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+</head>
+<% if notice%>
+<div class="alert alert-info" style="margin-top:50px;">
+	<button type="button" class="close" data-dismiss="alert">×</button>
+  <%= notice %>
+</div>
+<%end%>
+<body class="background whitetext" style ="margin:auto;">
+	
+
+<%= yield %>
+
+</body>
+</br>
+<footer 
+style=" 
+   position:absolute;
+   bottom:0;
+   left:0;
+   width:100%;
+   position: fixed;
+     z-index:99;">
+<%= render :partial => "shared/footer"%>	
+</footer>
+</html>

@@ -1,0 +1,7 @@
+<div class="container natural-margin">
+<%= form_for @topic do |topic|%>
+  <%= topic.text_field :title%></br>
+  <%= topic.text_area :descritption%></br>
+  <%= topic.submit "enviar topico", :class=> "btn"%></br>
+<%end%>
+</div>

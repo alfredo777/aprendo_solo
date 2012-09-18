@@ -1,0 +1,67 @@
+<script type="text/javascript" charset="utf-8">
+   jQuery(function($){
+     fv = $("#video").flareVideo();
+     fv.load([
+       {
+         src:  'http://flarevideo.com/flarevideo/examples/volcano.mp4',
+         type: 'video/mp4'
+       }
+     ]);
+   })
+ </script>
+<div class="row">
+	<div class="span16">
+	 </div>
+      <div class="span10 whitetext" style="margin:50px;margin-left:160px;"> 
+<h1>Ingresa, crea un curso y comparte conocimiento con el mundo.</h1>
+</br>
+<div id="myCarousel" class="carousel slide">
+  <!-- Carousel items -->
+  <div class="carousel-inner" style="background-color:#000;height:400px;">
+    <div  class="active item">
+     <div id="video"></div>
+     <center>
+     <p>Creamos Redes Sociales Especializadas en Aprendizaje en linea.</p>
+     </center>
+    </div>
+    <div class="item">
+	<%= image_tag('boy_ini.jpg')%>
+	<center><p>An Idea For es una empresa dedicada a convertir ideas en realidades y sueños en realidades.</p></center></div>
+    <div class="item">Desarrollado en <%= image_tag("rails.png") %></div>
+  </div>
+    
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+     
+ </br>
+  
+	   <div class="row ">
+      	<div class="span3 yellow">
+	    <h4>
+		<% if @video_loaders.count == 0%>
+		 No hay ningún video nuevo cargado
+		<%else%>
+	    <%= @video_loaders_last.title%>
+	   
+	    </h4>
+	    <p><%= @video_loaders_last.description%></p>  
+	    <div class="pull-right">
+	     <%= link_to "Ver más", @video_loaders_last %>
+	    </div>
+	     <%end%>
+     	</div>
+        
+    	<div class="span3 blue">
+	     <h4>Destacados</h4>
+	     In aliquet tincidunt justo, et mattis elit porttitor ac. Nulla dapibus porta tristique. Pellentesque ullamcorper imperdiet mollis. Vestibulum eleifend nunc vel nulla rutrum fermentum.
+	    </div>
+	    <div class="span3 green">
+		 <h4>Blog</h4>
+		 In aliquet tincidunt justo, et mattis elit porttitor ac. Nulla dapibus porta tristique. Pellentesque ullamcorper imperdiet mollis. Vestibulum eleifend nunc vel nulla rutrum fermentum.
+	    </div>
+	   </div>
+      </div>
+   </div>
+</div>

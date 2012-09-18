@@ -1,0 +1,45 @@
+
+
+<div class="row" style="padding-top:50px;">
+	<%= current_course.id %>
+	<div class="span16" style="padding-left:50px;">
+	<div class="span3 grey" style="z-index:99">
+<%= form_for(@video_loader) do |f| %>
+  <% if @video_loader.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@video_loader.errors.count, "error") %> prohibited this video_loader from being saved:</h2>
+
+      <ul>
+      <% @video_loader.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :rows => 5  %>
+  </div>
+  <div class="field">
+    <%= f.label :typeo %><br />
+    <%= f.select :typeo, options_for_select([['Matemáticas', 'mathematics'],['Bilogía', 'Bilology'],['Física','Physical'], ['Química','Quimic'],['Lenguajes','Languajes'], ['Informática','Informatic'],['Manualidades','crafts'], ['Arte','art'],['Hogar','home'], ['Cocina','kitchen'],['Relacionado con animales','animals'], ['Agricultura','agriculture'], ['Tema de interés social','social']])  %>
+  </div>
+  <div class="field">
+    <%= f.label :level %><br />
+    <%= f.select :level, options_for_select([['Principiante', 'one'],['Intermedio', 'two'],['Avanzado','tree']]) %>
+  </div>
+   <%= f.hidden_field :course_id, :value => current_course.id%>
+   <%= f.file_field :video_load %>
+      <%= f.hidden_field :user_id, :value => current_user.id%>
+  <div class="actions">
+    <%= f.submit "Subir Video", :class=>"btn" %>
+  </div>
+<% end %>
+ </div>
+
+ </div>
+</div>

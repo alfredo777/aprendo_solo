@@ -1,0 +1,118 @@
+<div class="span14" style="margin-top:70px; margin-left:240px;">
+ <div class="span9">
+	
+   	<div class="span1">
+	 <% if @user.avatar? %>
+       <div style="background-image:url(<%= @user.avatar%>); width:50px;height:50px;"></div>
+     <%else%>
+       <div style="background-image:url(<%= @user.image%>); width:50px;height:50px;"></div>
+     <%end%>
+	<% if current_user.id == @user.id%>
+	</br>
+	<div class="span5 white">
+	  
+	  |<%= link_to "editar usuario", edit_user_path%>|
+	  <%= link_to "mis videos", users_videos_path%>|
+
+	</div>
+	<%end%>
+     </div><div class="span7"><h1><%= @user.name%></h1></div>
+ </div>
+
+<% if current_user.id == @user.id%>
+
+<div class="span5" style="margin-top:30px;">
+	<div class="grey-black" style="height:50;">
+  <%= form_for(@user) do |f| %>
+   <% if @user.email?%> 
+      Tu email es privado:<%= @user.email %>
+   <%else%>
+     <div><%= f.label :ingresa_tu_email %><br />
+           <%= f.email_field :email %></div>
+   <%end%>
+   <% if @user.about_me?%>
+      
+   <%else%>
+    <%= f.label :ingresa_tu_descripcción_personal%> 
+    <%= f.text_area :about_me, :rows => 7 %></br>
+
+   <%end%>
+    <% if current_user.email? & current_user.about_me? == true %>  
+    <%else%>      
+    <div><%= f.submit "Guardar", :class => "btn pull-right"%>  </div>
+   <%end%>
+<% end %>
+   <h2>Acerca de mí:</h2>
+   <div class="ocultable" id="texto1">
+	<%= @user.about_me%>
+	</div>
+	<a href="javascript:MostrarOcultar('texto1');" id="enlace1"> Mostrar/Ocultar</a>
+	</div>
+   	<div class="grey-black" style="height:350px; margin-bottom:50px;">
+	  <h2>Red de usuarios:</h2>
+	    <% @users.each do |user|%>
+	     <div style="width:60px; height:60px; float:left;">
+	        <a rel="tooltip" data-placement="top" title="<%= user.about_me %>">
+	          <% if user.avatar? %>
+	
+	           <div class="squere" id="<%= user.id %>" style="background-image:url(<%=user.avatar%>)" onClick="goToProfile('<%= user_path(user.id)%>')"></div>
+	
+	          <%else%>
+	           <div class="squere" id="<%= user.id %>" style="background-image:url(<%=user.image%>)" onClick="goToProfile('<%= user_path(user.id)%>')"></div>
+	          <%end%>
+	        </a>
+	     </div>
+	   <%end%><div class="pull-right"></br></br></br>
+	  <%= link_to "Members", members_path%></div>
+	 </div>
+ </div>
+<div class="span3 grey-black content-overflow" style="margin-top:33px; height:300px;">
+		<h3> Todos mis cursos:</h3>
+ <%@user.courses.each do |courses|%>
+   <div class="span2" ><%= link_to courses.title, course_path(courses.id)%>&nbsp;&nbsp;|<%= link_to "editar", edit_course_path(courses.id)%>|</div>
+ <%end%>
+
+<%else%>
+<div class="span5" style="margin-top:30px;">
+	<div class="grey-black" style="height:50;">
+		<h2>Acerca de mí:</h2> <p><%= @user.about_me%></p>		
+	</div>
+	<div class="grey-black" style="height:350px; margin-bottom:50px;">
+	  <h2>Red de usuarios:</h2>
+	    <% @users.each do |user|%>
+	     <div style="width:60px; height:60px; float:left;">
+	        <a rel="tooltip" data-placement="top" title="<%= user.about_me %>">
+	          <% if user.avatar? %>
+	         <div class="squere" id="<%= user.id %>" style="background-image:url(<%=user.avatar%>)" onClick="goToProfile('<%= user_path(user.id)%>')"></div>
+	          <%else%>
+	         <div class="squere" id="<%= user.id %>" style="background-image:url(<%=user.image%>)" onClick="goToProfile('<%= user_path(user.id)%>')"></div>
+	          <%end%>
+	        </a>
+	     </div>
+	   <%end%>
+	       <div class="pull-right"></br></br></br>
+		  <%= link_to "Members", members_path%></div>
+	</div>
+	 </div>
+	
+<div class="span3 grey-black content-overflow" style="margin-top:33px; height:300px;">
+	<h3> Todos mis cursos:</h3>
+ <%@user.courses.each do |courses|%>
+   <div class="span2" ><%= link_to courses.title, course_path(courses.id)%></div>
+ <%end%>
+</div>
+<%end%>
+ 
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+
+	function goToProfile(url){
+		console.log('hola');
+		window.location = url;
+		
+	}
+
+</script>

@@ -1,0 +1,35 @@
+<h1>Listing video_loaders</h1>
+<div class="data-table">
+<table  class="table table-bordered table-condensed" >
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Type</th>
+    <th>Level</th>
+    <th>id</th>
+    <th>Opcciones</th>
+  </tr>
+
+<% @video_loaders.each do |video_loader| %>
+  <tr>
+    <td><%= video_loader.title %></td>
+    <td><%= video_loader.description %></td>
+    <td><%= video_loader.typeo %></td>
+    <td><%= video_loader.level %></td>
+    <td><%= video_loader.course_id %></td>
+    
+<td>
+<div class="btn-group", style="color:#fff;">
+   <div class="btn btn-info">  <%= link_to 'Mostrar', video_loader %></div>
+   <div class="btn btn-warning"><%= link_to 'Eliminar', video_loader, confirm: 'Are you sure?', method: :delete %></div>
+</div>
+</td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+</div>
+

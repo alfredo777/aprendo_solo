@@ -1,0 +1,12 @@
+<% if @counter === 0 %>
+<h1>No hay tópicos existentes </h1>
+<%else%>
+<% @topics.each do |topics| %>
+<div class="green">
+  <h2><%= topics.title%></h2>
+  <%= topics.descritption%>
+  <%= link_to "ir al tópico", topic_path(topics.id)%>
+</div></br>
+<%end%>
+
+<%end%>

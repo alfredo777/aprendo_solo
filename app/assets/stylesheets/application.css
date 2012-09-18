@@ -469,6 +469,12 @@ background-image: -webkit-gradient(
 	
 }
 
-.quest_element{
+.quest-element{
     border-bottom: solid 1px #B6CED7;
+    height: 60px;
+    padding: 10px 10px 10px 10px;
+}
+.quest-btn{
+    margin: 10px 5px 0px 0px;
+    float: right;
 }

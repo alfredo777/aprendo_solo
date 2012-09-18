@@ -23,11 +23,14 @@
       </div>
   </div>
 
-  <div id="quest_elements" class="span10" style="margin: 150px 0px 50px 0px">
+  <div id="quest_elements" class="span10" style="margin: 140px 0px 50px 0px">
     <% @quest.each do |quest| %>
-        <div class="quest_element">
+        <div class="quest-element">
             <b><%=  quest.description%></b>
-            <a href="#" onclick="return false" class="btn">Responder</a>
+            <a href="#" onclick="return false" class="btn quest-btn">Responder</a>
+
+              <div style="float: left;">
+              </div>
             </br>
 
         </div>

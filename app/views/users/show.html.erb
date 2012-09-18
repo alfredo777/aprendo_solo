@@ -1,5 +1,7 @@
-<div class="span14" style="margin-top:70px; margin-left:240px;">
- <div class="span9">
+<div class="content container natural-margin" style="margin-top:39px;">
+
+
+ <div class="span9" style="margin-top:9px;">
 	
    	<div class="span1">
 	 <% if @user.avatar? %>
@@ -22,7 +24,7 @@
 <% if current_user.id == @user.id%>
 
 <div class="span5" style="margin-top:30px;">
-	<div class="grey-black" style="height:50;">
+	<div class="grey" style="height:50;">
   <%= form_for(@user) do |f| %>
    <% if @user.email?%> 
       Tu email es privado:<%= @user.email %>
@@ -48,7 +50,7 @@
 	</div>
 	<a href="javascript:MostrarOcultar('texto1');" id="enlace1"> Mostrar/Ocultar</a>
 	</div>
-   	<div class="grey-black" style="height:350px; margin-bottom:50px;">
+   	<div class="grey" style="height:350px; margin-bottom:50px;">
 	  <h2>Red de usuarios:</h2>
 	    <% @users.each do |user|%>
 	     <div style="width:60px; height:60px; float:left;">
@@ -66,7 +68,7 @@
 	  <%= link_to "Members", members_path%></div>
 	 </div>
  </div>
-<div class="span3 grey-black content-overflow" style="margin-top:33px; height:300px;">
+<div class="span3 grey content-overflow" style="margin-top:33px; height:300px;">
 		<h3> Todos mis cursos:</h3>
  <%@user.courses.each do |courses|%>
    <div class="span2" ><%= link_to courses.title, course_path(courses.id)%>&nbsp;&nbsp;|<%= link_to "editar", edit_course_path(courses.id)%>|</div>
@@ -74,10 +76,10 @@
 
 <%else%>
 <div class="span5" style="margin-top:30px;">
-	<div class="grey-black" style="height:50;">
+	<div class="grey" style="height:50;">
 		<h2>Acerca de mí:</h2> <p><%= @user.about_me%></p>		
 	</div>
-	<div class="grey-black" style="height:350px; margin-bottom:50px;">
+	<div class="grey" style="height:350px; margin-bottom:50px;">
 	  <h2>Red de usuarios:</h2>
 	    <% @users.each do |user|%>
 	     <div style="width:60px; height:60px; float:left;">
@@ -95,7 +97,7 @@
 	</div>
 	 </div>
 	
-<div class="span3 grey-black content-overflow" style="margin-top:33px; height:300px;">
+<div class="span3 grey content-overflow" style="margin-top:33px; height:300px;">
 	<h3> Todos mis cursos:</h3>
  <%@user.courses.each do |courses|%>
    <div class="span2" ><%= link_to courses.title, course_path(courses.id)%></div>
@@ -103,6 +105,7 @@
 </div>
 <%end%>
  
+</div>
 </div>
 </div>
 </div>

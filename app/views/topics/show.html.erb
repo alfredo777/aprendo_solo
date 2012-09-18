@@ -1,24 +1,42 @@
-<div class="container natural-margin">
-<p id="notice"><%= notice %></p>
+<div class="container natural-margin" >
+  <div class="span12" style="position: fixed; background: #D27F0A; margin-left: 0px!important;margin-top: -10px; border-bottom: solid 1px #D26800;">
+      <div class="span2">
 
-<p>
-  <b>Title:</b>
-  <%= @topic.title %>
-</p>
+        <p id="notice"><%= notice %></p>
+        <p>
+          <b>Title:</b>
+          <%= @topic.title %>
+        </p>
 
-<p>
-  <b>Descritption:</b>
-  <%= @topic.descritption %>
-</p>
+        <p>
+          <b>Descritption:</b>
+          <%= @topic.descritption %>
+        </p>
+        <p>
+          <b>Value:</b>
+          <%= @topic.value %>
+        </p>
+        <%= link_to 'Edit', edit_topic_path(@topic) %> |
+        <%= link_to 'Back', topics_path %>
+      </div>
 
-<p>
-  <b>Value:</b>
-  <%= @topic.value %>
-</p>
+      <div style="float: right;">
+          <div id="result_msg"></div>
+          <%= render :partial =>  "examination/form_quest"%>
+      </div>
+
+    </div>
 
 
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
+
+  <div id="quest_elements" class="span12" style="margin: 150px 0px 50px 0px">
+    <% @quest.each do |quest| %>
+        <div class="green">
+            <b><%=  quest.description%></b></br>
+        </div>
+    <% end %>
+</div>
 </div>
 
-<%= render :partial =>  "examination/form_quest"%>
+
+

@@ -1,8 +1,7 @@
 <div class="container">
-<%= form_for @quest, remote: true do |quest|%>
+<%= form_for ([@topic, @topic.quests.build]), :remote => true do |quest|%>
 
-
-<a href="#" id="add_quest_btn"> Agregar pregunta</a>
+      <a href="#" id="add_quest_btn"> Agregar pregunta</a>
 	<div id="clone_box"></div>
 	<div id="clone_elements" style="display:block">
 	 <%= quest.text_area :description,:rows => 5, :class => "span4" %></br>

@@ -1,2 +1,10 @@
 /.DS_Store
 .DS_Store
+/.idea/
+/db/development.sqlite3
+/log/development.log
+/tmp/cache/assets/D0E/730/
+/tmp/cache/assets/D4E/1B0/sprockets%2Ff7cbd26ba1d28d48de824f0e94586655
+/tmp/cache/assets/D69/
+/tmp/cache/assets/E04/890/sprockets%2F2f5173deea6c795b8fdde723bb4b63af
+/tmp/pids/server.pid

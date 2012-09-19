@@ -30,6 +30,8 @@
             <a href="#" onclick="return false" class="btn quest-btn">Responder</a>
 
               <div style="float: left;">
+                <%= render :partial =>  "examination/form_answer",
+                           :locals => {:quest => quest, :text_2 => t(:'text_2')} %>
               </div>
             </br>
 

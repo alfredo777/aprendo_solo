@@ -16,7 +16,6 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     @quest = @topic.quests
 
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @topic }

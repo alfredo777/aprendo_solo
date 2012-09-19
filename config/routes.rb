@@ -23,6 +23,9 @@ AprendoSolo::Application.routes.draw do
   resources :topics do
     resources :quests
   end
+  resources :quests do
+    resources :answers
+  end
    match "topic/:id/quest_user", :to => "quests#user_quest", :as => :quests
    match "users/:id/videos",:to =>"users#videos", :as => :users_videos
    match "/auth/:provider/callback" => "sessions#create"
